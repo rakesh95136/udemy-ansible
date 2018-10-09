@@ -1,0 +1,13 @@
+---
+ - hosts: webserver 
+   become: true
+   tasks:
+    - name: stop the webserver
+      service: name=apache2 state=stopped
+
+ - hosts: loadbalancer
+   become: true
+   tasks:
+    - name: stop the loadbalancer
+      service: name=ngnix state=stopped
+
